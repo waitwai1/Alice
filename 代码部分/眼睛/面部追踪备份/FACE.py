@@ -12,18 +12,24 @@ import pickle
 SERVO_PORT = "COM4"
 CAMERA_INDEX = 1
 
+# KP_PAN / KD_PAN：左右转动的灵敏度参数，数值越大，舵机越容易跟着目标快速修正偏差。
 KP_PAN = 0.09
 KD_PAN = 0.1
+# KP_TILT / KD_TILT：上下转动的灵敏度参数，控制头部上下跟踪的响应速度。
 KP_TILT = 0.06
 KD_TILT = 0.035
 
+# ALPHA：过滤噪声的平滑系数，数值较大时更容易跟随瞬时变化，较小时更稳定。
 ALPHA = 0.35
-SPEED_MIN = 60             # 放宽下限，让舵机能转更快
+# SPEED_MIN：舵机最低转速下限，数值越大，舵机越不容易“拖着走”，适合让目标快速响应和转向更明显。
+SPEED_MIN = 60             # 设定最小速度下限，避免舵机在接近目标时转得太慢
+# SPEED_MAX：舵机最高转速上限，过大可能导致动作过猛，过小则跟踪迟缓。
 SPEED_MAX = 120            # 放宽上限
+# PAN_DIR / TILT_DIR：控制左右/上下转动方向，决定正反转。
 PAN_DIR  = -1
 TILT_DIR = +1
 
-# 非线性加速：误差超过这个值时，速度再乘以增益
+# 非线性加速：误差超过这个值时，速度再乘以增益，帮助高速目标更快跟上。
 ACCEL_THRESHOLD = 80       # 像素
 ACCEL_GAIN = 1.1           # 加速倍数
 
