@@ -1,0 +1,16 @@
+# 忽略 900MB 的虚拟环境
+venv/
+
+# 忽略人脸照片和缓存
+known_faces/
+*.pkl
+
+# 忽略 AI 模型
+*.onnx
+
+# 忽略 Python 缓存
+__pycache__/
+*.pyc
+
+# 忽略 VSCode 配置
+.vscode/
